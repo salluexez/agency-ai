@@ -103,7 +103,7 @@ export default function ContactForm() {
             onClick={handleSubmit}
             className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-8 py-3 rounded-full transition-all duration-300 flex items-center gap-2 hover:gap-3 shadow-lg hover:shadow-xl"
           >
-            Submit<FaArrowRightLong />
+            Submit <img src={assets.arrow_icon} alt="" />
           </button>
         </div>
       </div>
