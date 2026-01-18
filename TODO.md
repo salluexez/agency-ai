@@ -1,0 +1,7 @@
+- [x] Update Footer.jsx with dark mode classes
+- [x] Update Team.jsx with dark mode classes
+- [x] Update ReachOut.jsx with dark mode classes
+- [x] Update Help.jsx with dark mode classes (fix inconsistencies)
+- [x] Update LatestWork.jsx with dark mode classes
+- [x] Update InnerPage.jsx if needed
+- [x] Test the dark mode toggle across all components
