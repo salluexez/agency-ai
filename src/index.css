@@ -39,3 +39,16 @@ body {
 .animate-slideUp {
   animation: slideUp 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+body {
+  background: linear-gradient(135deg, #f5f7fa, #ebedf0);
+  transition: background .3s ease;
+}
+
+.dark body {
+  background: linear-gradient(135deg, #0e0e0f, #0c0c0e);
+}
+
+* {
+  cursor: none !important;
+}

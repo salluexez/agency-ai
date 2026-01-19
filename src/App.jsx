@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 import InnerPage from './components/InnerPage'
 import useThemeStore from './store/ThemeStore'
 import Footer from './components/Footer'
-import CustomCursor from './components/customCursor'
+import CustomCursor from './components/CustomCursor'
 
 
 const App = () => {

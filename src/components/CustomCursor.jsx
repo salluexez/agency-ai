@@ -1,28 +1,34 @@
 import { useEffect, useState } from "react";
 
-const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+export default function CustomCursor() {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const moveCursor = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+    const move = (e) => {
+      setPos({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener("mousemove", moveCursor);
-    return () => window.removeEventListener("mousemove", moveCursor);
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
   }, []);
 
   return (
-    <div
-      className="fixed top-0 left-0 w-5 h-5 rounded-full
-                 bg-blue-600 pointer-events-none
-                 -translate-x-1/2 -translate-y-1/2
-                 transition-transform duration-75"
-      style={{
-        transform: `translate(${position.x}px, ${position.y}px)`
-      }}
-    />
-  );
-};
+    <>
+      {/* Center dot */}
+      <div
+        className="pointer-events-none fixed z-[9999] w-3 h-3 bg-[#4A3AFF] rounded-full transition-transform duration-75"
+        style={{
+          transform: `translate(${pos.x - 6}px, ${pos.y - 6}px)`,
+        }}
+      />
 
-export default CustomCursor;
+      {/* Outer ring */}
+      <div
+        className="pointer-events-none fixed z-[9998] w-10 h-10 rounded-full border-[2px] border-[#4A3AFF] opacity-85 transition-transform duration-150"
+        style={{
+          transform: `translate(${pos.x - 20}px, ${pos.y - 20}px)`,
+        }}
+      />
+    </>
+  );
+}

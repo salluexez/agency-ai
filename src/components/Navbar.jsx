@@ -6,66 +6,87 @@ import useThemeStore from '../store/ThemeStore';
 import Menu from './menu';
 
 const Navbar = () => {
-  const { isDark, toggleTheme } = useThemeStore();
-  const [openMenu, setOpenMenu] = useState(false);
+    const { isDark, toggleTheme } = useThemeStore();
+    const [openMenu, setOpenMenu] = useState(false);
 
-  return (
-    <nav className="w-full sticky top-0 z-50 backdrop-blur-md bg-white/60 dark:bg-iosDarkElevated/60 transition-colors duration-300">
-      
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4">
+    const scrollToSection = (id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    };
 
-        {/* Mobile */}
-        <img
-          src={isDark ? assets.menu_icon_dark : assets.menu_icon}
-          alt="Menu"
-          className="w-[25px] cursor-pointer block md:hidden"
-          onClick={() => setOpenMenu(true)}
-        />
+    return (
+        <nav className="w-full sticky top-0 z-50 flex justify-center px-4 sm:px-6">
 
-        {/* Logo */}
-        <img
-          src={isDark ? assets.logo_dark : assets.logo}
-          className="w-32 sm:w-40 cursor-pointer select-none"
-          alt="logo"
-        />
+            <div className="
+               max-w-7xl w-full flex justify-between items-center px-6 sm:px-10 lg:px-16 xl:px-20 py-4 backdrop-blur-xl bg-iosGlassLight dark:bg-iosGlassDark rounded-ios border border-white/40 dark:border-white/10 shadow-ios dark:shadow-iosDark transition-all duration-300">
 
-        {/* Links */}
-        <div className="hidden md:block">
-          <ul className="flex gap-8 font-medium text-gray-700 dark:text-gray-300 tracking-tight">
-            {["Home","Services","Our Work","Testimonials"].map(item => (
-              <li key={item} className="hover:text-iosBlueDark cursor-pointer">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+                {/* Mobile */}
+                <img
+                    src={isDark ? assets.menu_icon_dark : assets.menu_icon}
+                    alt="Menu"
+                    className="w-[25px] cursor-pointer block md:hidden"
+                    onClick={() => setOpenMenu(true)}
+                />
 
-        {/* Actions */}
-        <div className="flex items-center gap-4">
-          <button
-            onClick={toggleTheme}
-            className="text-xl w-10 h-10 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/10 transition"
-          >
-            {isDark ? <CiLight /> : <CiDark />}
-          </button>
+                {/* Logo */}
+                <img
+                    onClick={scrollToHome}
+                    src={isDark ? assets.logo_dark : assets.logo}
+                    className="w-32 sm:w-40 cursor-pointer select-none active:opacity-70 active:scale-[.97] transition"
+                    alt="logo"
+                />
 
-          <button
-            className="hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-medium bg-iosBlue hover:bg-iosBlueDark shadow-ios dark:shadow-iosDark transition"
-          >
-            Connect
-            <FaArrowRightLong />
-          </button>
-        </div>
-      </div>
+                {/* Links */}
+                <div className="hidden md:block">
+                    <ul className="flex gap-8 font-medium text-gray-700 dark:text-gray-300 tracking-tight">
 
-      {/* Divider only under content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-12 lg:px-24 xl:px-40">
-        <div className="border-b border-black/5 dark:border-white/10"></div>
-      </div>
+                        <li onClick={() => scrollToSection("home")} className="hover:text-iosBlueDark cursor-pointer">Home</li>
+                        <li onClick={() => scrollToSection("services")} className="hover:text-iosBlueDark cursor-pointer">Services</li>
+                        <li onClick={() => scrollToSection("work")} className="hover:text-iosBlueDark cursor-pointer">Our Work</li>
+                        <li onClick={() => scrollToSection("testimonials")} className="hover:text-iosBlueDark cursor-pointer">Testimonials</li>
 
-      {openMenu && <Menu isOpen={openMenu} onClose={() => setOpenMenu(false)} />}
-    </nav>
-  );
+                    </ul>
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center gap-4">
+                    <button
+                        onClick={toggleTheme}
+                        className="text-xl w-10 h-10 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/10 transition"
+                    >
+                        {isDark ? <CiLight /> : <CiDark />}
+                    </button>
+
+                    <button
+                        onClick={() => scrollToSection("contact")}
+                        className="hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-medium bg-iosBlue hover:bg-iosBlueDark shadow-ios dark:shadow-iosDark transition"
+                    >
+                        Connect
+                        <FaArrowRightLong />
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile Menu */}
+            {openMenu && (
+                <Menu
+                    isOpen={openMenu}
+                    onClose={() => setOpenMenu(false)}
+                    scrollToSection={scrollToSection}
+                />
+            )}
+        </nav>
+    );
+};
+
+const scrollToHome = () => {
+    document.getElementById("home")?.scrollIntoView({
+        behavior: "smooth",
+    });
 };
 
 export default Navbar;

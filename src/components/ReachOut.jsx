@@ -10,103 +10,145 @@ export default function ContactForm() {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Add your form submission logic here
   };
 
   return (
-    <div className=" w-[100%] py-16 px-4  bg-white dark:bg-gray-900">
-      <div className="max-w-3xl mx-auto">
+    <section id="contact" className="py-32 px-6 flex justify-center">
+      
+      <div className="
+        max-w-4xl w-full
+        p-12
+        rounded-ios
+        backdrop-blur-xl
+        bg-iosGlassLight dark:bg-iosGlassDark
+        border border-white/40 dark:border-white/10
+        shadow-ios dark:shadow-iosDark
+        transition-all
+      ">
+
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl mt-28 font-semibold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white">
             Reach out to us
           </h2>
-          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-            Ready to grow your brand? Let's connect and build something 
-          <p>exceptional together.</p>
+          <p className="mt-3 text-gray-600 dark:text-gray-400 text-lg">
+            Ready to grow your brand? Let’s connect and build something exceptional.
           </p>
         </div>
 
         {/* Form */}
-        <div className=" dark:bg-gray-800 rounded-2xl p-8  dark:border-gray-700">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            {/* Name Input */}
-            <div>
-              <label htmlFor="name" className="block text-left text-sm font-medium text-gray-900 dark:text-white mb-2">
+        <form onSubmit={handleSubmit} className="space-y-8">
+          
+          {/* 2 Column row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* Name */}
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-medium text-gray-800 dark:text-gray-200">
                 Your name
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <img src={assets.person_icon} alt="User icon" className="w-5 h-5" />
-                </div>
+                <img
+                  src={assets.person_icon}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-5 opacity-70"
+                />
                 <input
                   type="text"
                   id="name"
                   name="name"
+                  placeholder="Enter your name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Enter your name"
-                  className="w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="
+                    w-full pl-12 pr-4 py-3 rounded-ios
+                    bg-white/70 dark:bg-white/10
+                    border border-black/10 dark:border-white/10
+                    backdrop-blur-sm
+                    text-gray-900 dark:text-white
+                    focus:ring-2 focus:ring-iosBlue focus:border-transparent
+                    transition-all
+                  "
                 />
               </div>
             </div>
 
-            {/* Email Input */}
-            <div>
-              <label htmlFor="email" className="block text-left text-sm font-medium text-gray-900 dark:text-white mb-2">
+            {/* Email */}
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-medium text-gray-800 dark:text-gray-200">
                 Email id
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <img src={assets.email_icon} alt="Email icon" className="w-5 h-5" />
-                </div>
+                <img
+                  src={assets.email_icon}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-5 opacity-70"
+                />
                 <input
                   type="email"
                   id="email"
                   name="email"
+                  placeholder="Enter your email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Enter your email"
-                  className="w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="
+                    w-full pl-12 pr-4 py-3 rounded-ios
+                    bg-white/70 dark:bg-white/10
+                    border border-black/10 dark:border-white/10
+                    backdrop-blur-sm
+                    text-gray-900 dark:text-white
+                    focus:ring-2 focus:ring-iosBlue focus:border-transparent
+                    transition-all
+                  "
                 />
               </div>
             </div>
           </div>
 
-          {/* Message Textarea */}
-          <div className="mb-6">
-            <label htmlFor="message" className="block text-left text-sm font-medium text-gray-900 dark:text-white mb-2">
+          {/* Message */}
+          <div className="space-y-2">
+            <label htmlFor="message" className="text-sm font-medium text-gray-800 dark:text-gray-200">
               Message
             </label>
             <textarea
               id="message"
               name="message"
-              value={formData.message}
-              onChange={handleChange}
               rows={6}
               placeholder="Enter your message"
-              className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+              value={formData.message}
+              onChange={handleChange}
+              className="
+                w-full px-4 py-3 rounded-ios resize-none
+                bg-white/70 dark:bg-white/10
+                border border-black/10 dark:border-white/10
+                backdrop-blur-sm
+                text-gray-900 dark:text-white
+                focus:ring-2 focus:ring-iosBlue focus:border-transparent
+                transition-all
+              "
             />
           </div>
 
-          {/* Submit Button */}
+          {/* Submit */}
           <button
-            onClick={handleSubmit}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-8 py-3 rounded-full transition-all duration-300 flex items-center gap-2 hover:gap-3 shadow-lg hover:shadow-xl"
+            type="submit"
+            className="
+              px-8 py-3 flex items-center gap-2 justify-center
+              rounded-full font-medium text-white
+              bg-iosBlue hover:bg-iosBlueDark
+              shadow-[0_2px_6px_rgba(0,0,0,0.1)]
+              transition-all active:scale-[.97]
+            "
           >
-            Submit<FaArrowRightLong />
+            Submit <FaArrowRightLong />
           </button>
-        </div>
+
+        </form>
       </div>
-    </div>
+    </section>
   );
 }
