@@ -1,16 +1,135 @@
-# React + Vite
+# Agency AI — Modern Marketing Landing Page (React + Tailwind)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern interactive landing page built with React, Tailwind CSS, custom cursor interactions, parallax animated background, and dark mode.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎨 Modern SaaS-style UI
+- 🌓 Light / Dark mode with persistent state
+- 🖱️ Custom animated cursor (dot + ring)
+- 🌌 Parallax animated background bubbles
+- 📱 Fully responsive layout
+- 🧩 Smooth section scroll navigation
+- 📬 Contact form
+- 👨‍👩‍👧 Team & Services sections
+- 🌐 SEO-friendly structure
+- 🧱 Clean component architecture
 
-## React Compiler
+-----------------
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🖼️ Preview Screenshots
 
-## Expanding the ESLint configuration
+<div align="center">
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<img src="src/assets/screens/screen1.png" width="31%" />
+<img src="src/assets/screens/screen2.png" width="31%" />
+<img src="src/assets/screens/screen3.png" width="31%" />
+<br/>
+<img src="src/assets/screens/screen4.png" width="31%" />
+<img src="src/assets/screens/screen5.png" width="31%" />
+<img src="src/assets/screens/screen6.png" width="31%" />
+<br/>
+<img src="src/assets/screens/screen7.png" width="31%" />
+
+</div>
+
+
+-----------------
+
+## 🚀 Live Demo
+
+Soon......
+
+---
+
+## 📦 Installation & Setup
+
+## Clone the repo:
+
+```sh
+git clone https://github.com/salluexez/agency-ai 
+```
+
+## Move into projects:
+
+```sh
+cd your-repo
+```
+
+## After that Install dependencies:
+
+```sh 
+npm install
+```
+
+## Run development server:
+
+```sh
+npm run dev
+```
+
+## Build for production:
+
+```sh 
+npm run build
+```
+
+## Preview production build:
+
+```sh 
+npm run preview
+```
+
+
+## Project Structure ---
+
+src/
+ ├── components/
+ │    ├── Navbar.jsx
+ │    ├── Menu.jsx
+ │    ├── InnerPage.jsx
+ │    ├── LatestWork.jsx
+ │    ├── Help.jsx
+ │    ├── Team.jsx
+ │    ├── ReachOut.jsx
+ │    ├── Footer.jsx
+ │    └── CustomCursor.jsx
+ ├── assets/
+ │    ├── icons & images ...
+ ├── store/
+ │    └── ThemeStore.js
+ ├── App.jsx
+ └── main.jsx
+
+
+
+
+## Contributing----------
+
+Pull requests are welcome....
+
+---------
+
+
+## 👥 Contributors
+
+Thanks to all who contributed to this project!
+
+<a href="https://github.com/salluexez">
+  <img src="https://github.com/salluexez.png" width="70" style="border-radius: 50%; margin-right: 10px;" />
+</a>
+
+<a href="https://github.com/ArushKhasru">
+  <img src="https://github.com/ArushKhasru.png" width="70" style="border-radius: 50%; margin-right: 10px;" />
+</a>
+
+---
+
+### Special Thanks 🤝
+
+- **[@salluexez](https://github.com/salluexez)** — Core Development
+- **[@ArushKhasru](https://github.com/ArushKhasru)** — UI/Brainstorming Support
+
+-------
+
+
