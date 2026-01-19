@@ -1,62 +1,69 @@
 import { useState } from 'react';
 import assets from '../assets/assets';
 import { FaArrowRightLong } from "react-icons/fa6";
-import { CiLight } from 'react-icons/ci';
-import { CiDark } from 'react-icons/ci';
+import { CiLight, CiDark } from 'react-icons/ci';
 import useThemeStore from '../store/ThemeStore';
 import Menu from './menu';
-
 
 const Navbar = () => {
   const { isDark, toggleTheme } = useThemeStore();
   const [openMenu, setOpenMenu] = useState(false);
 
-
   return (
-    <nav className="w-full sticky top-0 z-50 transition-colors duration-300 bg-white/90 dark:bg-black/90 text-gray-900 dark:text-white backdrop-blur-xl">
+    <nav className="w-full sticky top-0 z-50 backdrop-blur-md bg-white/60 dark:bg-iosDarkElevated/60 transition-colors duration-300">
+      
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4">
 
-      <div className='max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4'>
-
-        {/* Logo Toggle */}
+        {/* Mobile */}
         <img
           src={isDark ? assets.menu_icon_dark : assets.menu_icon}
           alt="Menu"
           className="w-[25px] cursor-pointer block md:hidden"
-          onClick={()=>setOpenMenu(true)}
+          onClick={() => setOpenMenu(true)}
         />
 
+        {/* Logo */}
         <img
           src={isDark ? assets.logo_dark : assets.logo}
-          className='w-32 sm:w-40 cursor-pointer'
-          alt='logo'
+          className="w-32 sm:w-40 cursor-pointer select-none"
+          alt="logo"
         />
 
-        {/* Navigation Links */}
-        <div className='hidden md:block'>
-          <ul className="flex gap-8 font-medium cursor-pointer text-gray-600 dark:text-gray-300">
-            <li className="hover:text-blue-500 transition">Home</li>
-            <li className="hover:text-blue-500 transition">Services</li>
-            <li className="hover:text-blue-500 transition">Our Work</li>
-            <li className="hover:text-blue-500 transition">Testimonials</li>
+        {/* Links */}
+        <div className="hidden md:block">
+          <ul className="flex gap-8 font-medium text-gray-700 dark:text-gray-300 tracking-tight">
+            {["Home","Services","Our Work","Testimonials"].map(item => (
+              <li key={item} className="hover:text-iosBlueDark cursor-pointer">
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Action Buttons */}
-        <div className='flex items-center gap-4'>
+        {/* Actions */}
+        <div className="flex items-center gap-4">
           <button
             onClick={toggleTheme}
-            className="text-2xl border rounded-full w-10 h-10 flex items-center justify-center transition-all border-gray-400 text-gray-600 hover:bg-gray-100 dark:border-yellow-400 dark:text-yellow-400 dark:hover:bg-yellow-400/10"
+            className="text-xl w-10 h-10 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/10 transition"
           >
             {isDark ? <CiLight /> : <CiDark />}
           </button>
 
-          <button className='hidden sm:flex items-center  justify-center bg-blue-700 hover:bg-blue-800 text-white px-6 py-2.5 rounded-full transition-all gap-2 group'>
+          <button
+            className="hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-medium bg-iosBlue hover:bg-iosBlueDark shadow-ios dark:shadow-iosDark transition"
+          >
             Connect
-            <FaArrowRightLong className="group-hover:translate-x-1 transition-transform" />
+            <FaArrowRightLong />
           </button>
         </div>
-
       </div>
+
+      {/* Divider only under content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-12 lg:px-24 xl:px-40">
+        <div className="border-b border-black/5 dark:border-white/10"></div>
+      </div>
+
+      {openMenu && <Menu isOpen={openMenu} onClose={() => setOpenMenu(false)} />}
     </nav>
   );
 };
